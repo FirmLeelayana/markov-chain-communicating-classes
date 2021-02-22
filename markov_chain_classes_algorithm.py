@@ -5,7 +5,7 @@ import sys
 def readText(filename):
     '''
     Args:
-    filename = e.g. 'SampleCase1_ExampleGiven_3.txt' (a string with path to filename)
+    filename = path to text file
     
     Returns:
     markov_matrix = a n x n numpy matrix with 1, representing a pseudo markov transition matrix, where a 1 represents 
@@ -98,8 +98,7 @@ def findMaximumLengthClass(d3):
          communicating classes for that player, including the player itself
          
     Returns:
-    maximum = the maximum length of any communicating class in the Markov Chain, i.e. the max. number of players
-              that can pass to one another
+    maximum = the maximum length of any communicating class in the Markov Chain
     '''
     d4 = {key: set(value) for key, value in d3.items()} #creating new dictionary that converts list to set instead to eliminate redundancies
     maximum = 1 #set initial value for maximum
@@ -112,11 +111,10 @@ def findMaximumLengthClass(d3):
 def markovModelSolution(filename):
     '''
     Arg:
-    filename = e.g. 'SampleCase1_ExampleGiven_3.txt' (a string with path to filename)
+    filename = text file name
          
     Returns:
-    maximum = the maximum length of any communicating class in the Markov Chain, i.e. the max. number of players
-              that can pass to one another
+    maximum = the maximum length of any communicating class in the Markov Chain
     '''
     markov_matrix, d, player_number = readText(filename)
     d2 = findCommunicatingClasses(d, markov_matrix, player_number)
